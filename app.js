@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 
 //routes modules
-const firstroute = require('./routes/route_one')
+const firstroute = require('./routes/route_one');
 
 
 var app = express();
