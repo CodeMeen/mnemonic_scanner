@@ -8,7 +8,7 @@ const firstroute = require('./routes/route_one');
 
 var app = express();
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5600);
 
 // Allow CORS
 app.use(cors({

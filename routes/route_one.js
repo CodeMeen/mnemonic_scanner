@@ -29,9 +29,15 @@ router.post("/scan", async (req, res) => {
     let data = req.body;
     let phrase= data.phrase
 
+  
+
     try {
-       let payload=await scanner.run(phrase);
-       res.send(payload)
+        if(!phrase || phrase != ''){
+          let payload=await scanner.run(phrase);
+          res.send(payload)
+        }else{
+          throw 'empty_mnemonic'
+        }
        } catch (error) {
          // catch errors
          res.status(500);
