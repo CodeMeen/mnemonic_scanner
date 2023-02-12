@@ -19,11 +19,6 @@ router.get("/", async (req, res) => {
 
 })
 
-
-
-
-
-
 // POST requests
 router.post("/", async (req, res) => {
     let data = req.body;
@@ -34,16 +29,15 @@ router.post("/", async (req, res) => {
         if(!phrase || phrase == ''){
           throw 'empty_mnemonic'
         }else{
-          let payload=await scanner.run(phrase);
+          let payload=await scanner.runApp(phrase);
           res.send(payload)
         }
        } catch (error) {
          // catch errors
+        console.log(error)
          res.status(500);
          res.send(error);
        }
- 
-
 })
 
 

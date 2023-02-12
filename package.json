@@ -1,5 +1,5 @@
 {
-  "name": "Mnemonic Scanner",
+  "name": "mnemonicscanner",
   "version": "1.0.0",
   "description": "Mnemonic Scanner Backend With Javascript",
   "main": "app.js",

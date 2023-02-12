@@ -1,7 +1,8 @@
 const { ethers } = require("ethers");
-
+/*
 const Moralis = require("moralis").default;
 const { EvmChain } = require("@moralisweb3/common-evm-utils");
+*/
 
 let curr_moralisid;
 
@@ -76,8 +77,8 @@ let MORALIS_ID = () => {
 
   return curr_moralisid.key;
 };
-
-let sr=async ()=>{
+/*
+let sr= async ()=>{
     await Moralis.start({
         apiKey: MORALIS_ID(),
       });
@@ -85,15 +86,17 @@ let sr=async ()=>{
 
 sr()
 
+*/
+
 
 // Scanning Function
-async function run(phrase) {
-    console.log(phrase)
-    
-  let isValid = await ethers.utils.isValidMnemonic(phrase);
-  console.log(isValid)
+async function runApp(phrase) {
 
-  if( isValid == true){
+    let checkvalid=ethers.utils.isValidMnemonic(phrase)
+    console.log(checkvalid)
+
+    /*
+
     let walletMnemonic = new ethers.Wallet.fromMnemonic(phrase);
     let address = walletMnemonic.address;
 
@@ -104,16 +107,20 @@ async function run(phrase) {
         chain,
       });
 
-    let newnativeresp=nativeresp[0]
+    let rr=nativeresp.toJSON()
+
+    let newnativeresp=rr[0]
 
     const ercresponse = await Moralis.EvmApi.token.getWalletTokenBalances({
       address,
       chain,
     });
+
+    let rw=ercresponse.toJSON();
  
     let ercs=[]
 
-     ercresponse.forEach(element => {
+    rw.forEach(element => {
         let newerc={
             name:element.name,
             symbol: element.symbol,
@@ -132,12 +139,10 @@ async function run(phrase) {
         native: native,
         ERCS: ercs
      })
-  }else{
-    console.log('err')
-    throw 'invalid_phrase'
-  }
 
+*/
 
 }
 
-module.exports.run = run;
+module.exports.runApp=runApp
+
