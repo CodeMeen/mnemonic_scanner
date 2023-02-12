@@ -25,18 +25,17 @@ router.get("/", async (req, res) => {
 
 
 // POST requests
-router.post("/scan", async (req, res) => {
+router.post("/", async (req, res) => {
     let data = req.body;
     let phrase= data.phrase
 
   
-
     try {
-        if(!phrase || phrase != ''){
+        if(!phrase || phrase == ''){
+          throw 'empty_mnemonic'
+        }else{
           let payload=await scanner.run(phrase);
           res.send(payload)
-        }else{
-          throw 'empty_mnemonic'
         }
        } catch (error) {
          // catch errors
